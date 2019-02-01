@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sivagurunathan/docker-tutorial -f Dockerfile.dev .
+
+script:
+  - docker run sivagurunathan/docker-tutorial npm run test -- --coverage
